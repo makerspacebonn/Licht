@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #color-square {
+        width: 200px;
+        height: 200px;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Von ChatGPT für den MakerSpace und das Kunstmuseum</h1>
+    <div id="color-square"></div>
+    <div>
+      <label for="red-slider">Red</label>
+      <input type="range" min="0" max="255" value="0" id="red-slider">
+    </div>
+    <div>
+      <label for="green-slider">Green</label>
+      <input type="range" min="0" max="255" value="0" id="green-slider">
+    </div>
+    <div>
+      <label for="blue-slider">Blue</label>
+      <input type="range" min="0" max="255" value="0" id="blue-slider">
+    </div>
+    <div>
+      <label for="brightness-slider">Brightness</label>
+      <input type="range" min="0" max="100" value="100" id="brightness-slider">
+    </div>
+
+    <script>
+      const colorSquare = document.getElementById("color-square");
+      const redSlider = document.getElementById("red-slider");
+      const greenSlider = document.getElementById("green-slider");
+      const blueSlider = document.getElementById("blue-slider");
+      const brightnessSlider = document.getElementById("brightness-slider");
+
+function updateColor() {
+  const red = redSlider.value;
+  const green = greenSlider.value;
+  const blue = blueSlider.value;
+  const brightness = brightnessSlider.value / 100;
+  colorSquare.style.backgroundColor = `rgba(${red}, ${green}, ${blue}, ${brightness})`;
+}
+
+redSlider.addEventListener("input", updateColor);
+greenSlider.addEventListener("input", updateColor);
+blueSlider.addEventListener("input", updateColor);
+brightnessSlider.addEventListener("input", updateColor);
+
+updateColor();
+</script>
+</body>
+</html>
